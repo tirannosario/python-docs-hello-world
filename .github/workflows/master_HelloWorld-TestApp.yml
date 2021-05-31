@@ -60,3 +60,17 @@ jobs:
           app-name: 'HelloWorld-TestApp'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_a146d41594494c92a96186ae2b2586e4 }}
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Run Load Test
+        uses: apardo04/locust-github-action@master
+        with:
+          LOCUSTFILE: "locustfile.py"
+          URL:  "https://helloworld-testapp.azurewebsites.net"
+          USERS: "1000"
+          RATE: "100"
+          RUNTIME: "12s"
