@@ -73,5 +73,5 @@ jobs:
           LOCUSTFILE: "locustfile.py"
           URL:  "https://helloworld-testapp.azurewebsites.net"
           USERS: "500"
-          RATE: "50"
-          RUNTIME: "20s"
+          RATE: "100"
+          RUNTIME: "30s"
