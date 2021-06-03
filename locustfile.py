@@ -23,5 +23,4 @@ class WebsiteTestUser(HttpUser):
     @task(2)
     def test_user_friends(self):
         self.client.get("/Locust")
-        time.sleep(2)
         self.client.get("/Locust/friends")
